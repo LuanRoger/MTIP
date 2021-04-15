@@ -1,0 +1,63 @@
+﻿<Window x:Class="MTIP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MTIP" Height="455" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="1.7*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="3">
+                <TextBlock Text="IP:" VerticalAlignment="Center" Padding="0"/>
+                <TextBox x:Name="txtIp" VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="76"
+                         MouseDoubleClick="txtIp_MouseDoubleClick"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Column="1" Margin="3">
+                <TextBlock Text="Porta:" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="0"/>
+                <TextBox x:Name="txtPorta" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76"/>
+            </StackPanel>
+            
+            <Button x:Name="btnConectar" Content="Conectar" Grid.Column="1" Margin="3, 0" 
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnConectar_Click"/>
+        </Grid>
+
+        <TextBox x:Name="txtHistoricoMensagens" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                 Margin="5" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"/>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Orientation="Vertical" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5, 7">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="0, 3"/>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Grid.Row="2" Text="Mensagem:"/>
+                <TextBox x:Name="txtMensagem" KeyDown="txtMensagem_KeyDown"/>
+            </StackPanel>
+            <Button x:Name="btnInformation" Grid.Column="1" Margin="3, 0"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" Height="20" 
+                BorderBrush="#00707070" Background="#00DDDDDD" Click="btnInformation_Click">
+                <Button.Content>
+                    <Image x:Name="imgBtnInformation"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="btnEnviarMensagem" Grid.Column="1" Content="Enviar" VerticalAlignment="Bottom"
+                HorizontalAlignment="Stretch" Click="btnEnviarMensagem_Click" Margin="5, 7"/>
+        </Grid>
+    </Grid>
+</Window>
